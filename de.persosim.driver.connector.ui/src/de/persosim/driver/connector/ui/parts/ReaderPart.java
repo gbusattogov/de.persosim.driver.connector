@@ -998,4 +998,27 @@ public class ReaderPart implements VirtualReaderUi {
 		disposeReaderControls();
 		type = ReaderType.NONE;
 	}
+
+	/**
+	 * Enter pin as if it had been typed by the user on the
+	 * keyboard.
+	 *
+	 * @param pin the pin to be entered
+	 * @return true, if a standard reader is active, or false, otherwise
+	 */
+	public boolean enterPin(final String pin) {
+		if (type == ReaderType.STANDARD) {
+			final int sz = pin.length();
+			for (int pos = 0; pos < sz; pos++) {
+				setButton("" + pin.charAt(pos));
+			}
+
+			setButton("OK");
+
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
