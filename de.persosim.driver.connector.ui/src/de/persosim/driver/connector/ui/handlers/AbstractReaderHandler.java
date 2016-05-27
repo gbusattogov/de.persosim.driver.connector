@@ -104,6 +104,7 @@ abstract class AbstractReaderHandler {
 		final Display display = Display.getDefault();
 		if (display == null) {
 			BasicLogger.log(getClass(), "Cannot find default display");
+			sendResponse("error");
 
 			return;
 		}
@@ -131,6 +132,7 @@ abstract class AbstractReaderHandler {
 		final Display display = Display.getDefault();
 		if (display == null) {
 			BasicLogger.log(getClass(), "Cannot find default display");
+			sendResponse("error");
 
 			return;
 		}
